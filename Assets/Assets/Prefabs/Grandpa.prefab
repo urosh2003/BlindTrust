@@ -135,5 +135,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grandpa: {fileID: 8358952407441927717}
-  targetDestinations:
-  - {fileID: 0}
+  targetDestinations: []
