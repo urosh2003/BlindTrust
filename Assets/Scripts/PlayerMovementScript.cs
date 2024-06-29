@@ -21,4 +21,10 @@ public class PlayerMovementScript : MonoBehaviour
             }
         }        
     }
+
+    public void DeadPlayer()
+    {
+        Debug.Log("Player died");
+
+    }
 }

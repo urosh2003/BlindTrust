@@ -4,7 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Terrain
+  - Grandpa
+  - Obstacle
+  - PickUp
+  - Trap
   layers:
   - Default
   - TransparentFX

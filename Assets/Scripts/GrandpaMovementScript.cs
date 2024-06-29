@@ -8,6 +8,9 @@ public class GrandpaMovementScript : MonoBehaviour
     public NavMeshAgent grandpa;
     public List<GameObject> targetDestinations;
     private int nextDestination = -1;
+    public float waitDuration = 3f;
+    public float timer = 0f;
+    public bool alive = true;
 
     void Start()
     {
@@ -16,7 +19,12 @@ public class GrandpaMovementScript : MonoBehaviour
 
     void Update()
     {
-        if(grandpa.transform.position.x == targetDestinations[nextDestination].transform.position.x 
+        timer += Time.deltaTime;
+        if(timer > waitDuration && alive)
+        {
+            Continue();
+        }
+        if (grandpa.transform.position.x == targetDestinations[nextDestination].transform.position.x 
             && grandpa.transform.position.z == targetDestinations[nextDestination].transform.position.z)
         {
             GoToNextDestination();
@@ -36,8 +44,30 @@ public class GrandpaMovementScript : MonoBehaviour
         }
     }
 
+    public void Continue()
+    {
+        gameObject.GetComponent<NavMeshAgent>().isStopped = false;
+    }
+
     void End()
     {
         return;
+    }
+
+    public void Dead()
+    {
+        gameObject.GetComponent<NavMeshAgent>().isStopped = true;
+        alive = false;
+        Debug.Log("Died!");
+    }
+
+    public void Stop()
+    {
+        Debug.Log("Stopped");
+        gameObject.GetComponent<NavMeshAgent>().isStopped = true;
+        timer = 0;
+        Debug.Log("Stopped finished");
+
+        //Continue();
     }
 }
