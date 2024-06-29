@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class IsometricCameraFollow : MonoBehaviour
+public class CameraFollowPlayerScript : MonoBehaviour
 {
     public Transform player; // Reference to the player's transform
     public Vector3 offset;   // Offset from the player's position
