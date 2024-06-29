@@ -7,6 +7,7 @@ public class TrapScript : MonoBehaviour
 {
     public bool trapEnabled = true;
 
+
     void OnTriggerEnter(Collider other)
     {
         if (trapEnabled)
@@ -37,7 +38,7 @@ public class TrapScript : MonoBehaviour
                 var playerScript = other.gameObject.GetComponent<PlayerMovementScript>();
                 if (playerScript != null)
                 {
-                    playerScript.DeadPlayer();
+                    playerScript.CaughtInATrap();
                 }
                 else
                 {
