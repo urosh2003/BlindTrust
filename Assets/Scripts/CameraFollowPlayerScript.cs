@@ -10,7 +10,7 @@ public class CameraFollowPlayerScript : MonoBehaviour
         // Initialize the offset based on initial positions
         if (player != null)
         {
-            offset = transform.position - player.position;
+            transform.position = offset + player.position;
         }
     }
 

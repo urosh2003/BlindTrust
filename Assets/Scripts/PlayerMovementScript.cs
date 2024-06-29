@@ -27,8 +27,19 @@ public class PlayerMovementScript : MonoBehaviour
                 {
                     DeadPlayer();
                 }
+                if(Input.GetKeyDown("space"))
+                {
+                    clicks += 1;
+                    if (clicks >= clicksRequired)
+                    {
+                        clickPanel.SetActive(false);
+                        playerCaught = false;
+                        gameObject.GetComponent<NavMeshAgent>().isStopped = false;
+                        clicks = 0;
+                    }
+                }
             }
-            if (Input.GetMouseButtonDown(0))
+            else if (Input.GetMouseButtonDown(0))
             {
                 if (!playerCaught)
                 {
@@ -39,17 +50,6 @@ public class PlayerMovementScript : MonoBehaviour
                     {
                         targetDest.transform.position = hitPoint.point;
                         player.SetDestination(hitPoint.point);
-                    }
-                }
-                else
-                {
-                    clicks += 1;
-                    if (clicks >= clicksRequired)
-                    {
-                        clickPanel.SetActive(false);
-                        playerCaught = false;
-                        gameObject.GetComponent<NavMeshAgent>().isStopped = false;
-                        clicks = 0;
                     }
                 }
             }

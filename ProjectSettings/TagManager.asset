@@ -8,6 +8,7 @@ TagManager:
   - Obstacle
   - PickUp
   - Trap
+  - Car
   layers:
   - Default
   - TransparentFX
