@@ -2,26 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class carScript : MonoBehaviour
+public class FinalCarScript : MonoBehaviour
 {
-    public Transform car;
+    public UnityEngine.AI.NavMeshAgent car;
     public float carSpeed = 1;
     public Vector3 directionVector;
-    public CarSpawnerScript spawner;
+    public GameObject destination;
 
     // Start is called before the first frame update
     void Start()
     {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (spawner.timeElapsed > 0)
-        {
-            car.position += directionVector * Time.deltaTime * carSpeed;
-        }
+        car.SetDestination(destination.transform.position);
     }
 
     void OnTriggerEnter(Collider other)

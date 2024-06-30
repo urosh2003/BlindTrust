@@ -9,6 +9,7 @@ TagManager:
   - PickUp
   - Trap
   - Car
+  - TrafficLight
   layers:
   - Default
   - TransparentFX

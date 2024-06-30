@@ -69,9 +69,10 @@ public class PlayerRaycastScript : MonoBehaviour
                 {
                     Debug.Log("Did Hit Grandpa");
                 }
-                else if (hitObject.CompareTag("Obstacle"))
+                else if (hitObject.CompareTag("TrafficLight"))
                 {
-                    Debug.Log("Did Hit Obstacle");
+                    hitObject.GetComponent<TrafficLightScript>().StopCars();
+                    Debug.Log("Disabled Trap");
                 }
                 if (hitObject.CompareTag("Trap"))
                 {
