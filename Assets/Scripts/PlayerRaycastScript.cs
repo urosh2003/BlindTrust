@@ -11,6 +11,8 @@ public class PlayerRaycastScript : MonoBehaviour
     public GameObject heldObject;
     public Transform player;
     public float hitRange = 10000;
+    public float barkCooldown = 10f;
+    public float timeElapsed = -1f;
 
     // Start is called before the first frame update
     void Start()
@@ -21,11 +23,19 @@ public class PlayerRaycastScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(timeElapsed > 0)
+        {
+            timeElapsed += Time.deltaTime;
+        }
+        if(timeElapsed > 10)
+        {
+            timeElapsed = -1;
+        }
     }
 
     public void Bark(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.performed && timeElapsed < 0f)
         {
             Debug.Log("Woof");
 
@@ -49,6 +59,8 @@ public class PlayerRaycastScript : MonoBehaviour
             {
                 Debug.Log("Did not Hit");
             }
+
+            timeElapsed = 0;
         }
     }
 
