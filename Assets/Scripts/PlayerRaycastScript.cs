@@ -40,9 +40,9 @@ public class PlayerRaycastScript : MonoBehaviour
                     Debug.Log("Did Hit Grandpa");
                     hitObject.GetComponent<GrandpaMovementScript>().Stop();
                 }
-                else if (hitObject.CompareTag("Obstacle"))
+                else if (hitObject.CompareTag("RunAway"))
                 {
-                    Debug.Log("Did Hit Obstacle");
+                    hitObject.GetComponent<RunAwayGroup>().BarkedAt();
                 }
             }
             else

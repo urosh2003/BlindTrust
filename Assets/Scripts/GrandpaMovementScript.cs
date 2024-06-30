@@ -7,14 +7,16 @@ public class GrandpaMovementScript : MonoBehaviour
 {
     public NavMeshAgent grandpa;
     public List<GameObject> targetDestinations;
-    private int nextDestination = -1;
+    public static int nextDestination = 0;
     public float waitDuration = 3f;
     public float timer = 0f;
     public bool alive = true;
+    public CheckpointManagerScript checkpoint;
+
 
     void Start()
     {
-        GoToNextDestination();
+        grandpa.SetDestination(targetDestinations[nextDestination].transform.position);
     }
 
     void Update()
@@ -59,6 +61,15 @@ public class GrandpaMovementScript : MonoBehaviour
         gameObject.GetComponent<NavMeshAgent>().isStopped = true;
         alive = false;
         Debug.Log("Died!");
+
+        checkpoint.Respawn();
+    }
+
+    public void Respawn()
+    {
+        alive = true;
+        gameObject.GetComponent<NavMeshAgent>().isStopped = false;
+        Continue();
     }
 
     public void Stop()

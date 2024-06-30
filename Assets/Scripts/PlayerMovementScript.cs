@@ -15,6 +15,7 @@ public class PlayerMovementScript : MonoBehaviour
     public float timeElapsed = 0f;
     public GameObject clickPanel;
     public bool alive = true;
+    public CheckpointManagerScript checkpoint;
 
     void Update()
     {
@@ -59,10 +60,21 @@ public class PlayerMovementScript : MonoBehaviour
     public void DeadPlayer()
     {
         alive = false;
+        clickPanel.SetActive(false);
+
         gameObject.GetComponent<NavMeshAgent>().isStopped = true;
 
         Debug.Log("Player died");
 
+        checkpoint.Respawn();
+    }
+
+    public void Respawn()
+    {
+        clickPanel.SetActive(false);
+        playerCaught = false;
+        alive = true;
+        gameObject.GetComponent<NavMeshAgent>().isStopped = false;
     }
 
     public void CaughtInATrap()
