@@ -8,28 +8,52 @@ public class PlayerRaycastScript : MonoBehaviour
 {
     public float castRadius;
     public bool holding;
+    public Camera camera;
     public GameObject heldObject;
     public Transform player;
     public float hitRange = 10000;
     public float barkCooldown = 10f;
     public float timeElapsed = -1f;
+    public float areaAroundPlayerRadius = 5f;
+
+    public float interactCooldown = 1f;
+    public float interactTimeElapsed = -1f;
+    public List<AudioClip> barks;
+    private AudioSource audioSource;
+
+    [SerializeField]
+    private GameObject CooldownIcon;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        CooldownIcon.GetComponent<SpellCooldown>().cooldownTime = barkCooldown;
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(timeElapsed > 0)
+        if (holding) {
+            heldObject.transform.position = player.position + Vector3.up * 3;
+            heldObject.transform.localScale = Vector3.one * 2;
+        }
+
+        if(timeElapsed >= 0)
         {
             timeElapsed += Time.deltaTime;
         }
-        if(timeElapsed > 10)
+        if(timeElapsed > barkCooldown)
         {
             timeElapsed = -1;
+        }
+        if(interactTimeElapsed >= 0)
+        {
+            interactTimeElapsed += Time.deltaTime;
+        }
+        if(interactTimeElapsed > interactCooldown)
+        {
+            interactTimeElapsed = -1;
         }
     }
 
@@ -37,11 +61,17 @@ public class PlayerRaycastScript : MonoBehaviour
     {
         if (context.performed && timeElapsed < 0f)
         {
+            CooldownIcon.GetComponent<SpellCooldown>().UseSpell();
             Debug.Log("Woof");
+            int randomNum = Random.Range(0, barks.Count);
+            audioSource.clip = barks[randomNum];
+            audioSource.Play();
+
 
             RaycastHit hit;
             // Does the ray intersect any objects excluding the player layer
-            if (Physics.SphereCast(transform.position, castRadius, transform.TransformDirection(Vector3.forward), out hit, hitRange))
+
+            if (Physics.SphereCast(transform.position + new Vector3(0,6,0), castRadius, transform.TransformDirection(Vector3.forward), out hit, hitRange))
             {
                 GameObject hitObject = hit.transform.gameObject;
 
@@ -57,7 +87,26 @@ public class PlayerRaycastScript : MonoBehaviour
             }
             else
             {
-                Debug.Log("Did not Hit");
+                Collider[] colliders = Physics.OverlapSphere(transform.position + new Vector3(0,2,0), areaAroundPlayerRadius);
+                if (colliders.Length > 0)
+                {
+                    foreach (var other in colliders)
+                    {
+                        Debug.Log(GetComponent<Collider>().name);
+
+                        if (other.gameObject.CompareTag("Grandpa"))
+                        {
+                            other.gameObject.GetComponent<GrandpaMovementScript>().Stop();
+
+                        }
+                        else if (other.gameObject.CompareTag("RunAway"))
+                        {
+                            other.gameObject.GetComponent<RunAwayGroup>().BarkedAt();
+                        }
+
+
+                    }
+                }
             }
 
             timeElapsed = 0;
@@ -66,14 +115,14 @@ public class PlayerRaycastScript : MonoBehaviour
 
     public void Interact(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.performed && interactTimeElapsed < 0)
         {
             Debug.Log("Interact");
 
 
             RaycastHit hit;
             // Does the ray intersect any objects excluding the player layer
-            if (Physics.SphereCast(transform.position, castRadius, transform.TransformDirection(Vector3.forward), out hit, hitRange))
+            if (Physics.SphereCast(transform.position + new Vector3(0,6,0), castRadius, transform.TransformDirection(Vector3.forward), out hit, hitRange))
             {
                 GameObject hitObject = hit.transform.gameObject;
 
@@ -91,6 +140,7 @@ public class PlayerRaycastScript : MonoBehaviour
                     if (holding)
                     {
                         holding = false;
+                        heldObject.SetActive(false);
                         heldObject = null;
                         hitObject.GetComponent<TrapScript>().DisableTrap();
                         Debug.Log("Disabled Trap");
@@ -101,31 +151,47 @@ public class PlayerRaycastScript : MonoBehaviour
                 {
                     Debug.Log("Did Hit Pickup");
                     holding = true;
-                    hitObject.SetActive(false);
                     heldObject = hitObject;
-                }
-                else
-                {
-                    if (holding)
-                    {
-                        holding = false;
-                        heldObject.transform.position = player.position + player.rotation * Vector3.forward * 2f;
-                        heldObject.SetActive(true);
-                        heldObject = null;
-                    }
                 }
             }
             else
             {
-                if (holding)
+                Collider[] colliders = Physics.OverlapSphere(transform.position + new Vector3(0,2,0), areaAroundPlayerRadius);
+                if (colliders.Length > 0)
                 {
-                    holding = false;
-                    heldObject.transform.position = player.position + player.rotation * Vector3.forward * 2f;
-                    heldObject.SetActive(true);
-                    heldObject = null;
+                    foreach(var other in colliders)
+                    {
+                        if (!holding)
+                        {
+                            if (other.gameObject.CompareTag("PickUp"))
+                            {
+                                Debug.Log("Did Hit Pickup");
+                                holding = true;
+                                heldObject = other.gameObject;
+                                break;
+                            }
+                            else if (other.gameObject.CompareTag("TrafficLight"))
+                            {
+                                other.gameObject.GetComponent<TrafficLightScript>().StopCars();
+                            }
+                        }
+                        else
+                        {
+                            if (other.gameObject.CompareTag("Trap"))
+                            {
+                                holding = false;
+                                heldObject.SetActive(false);
+                                heldObject = null;
+                                other.gameObject.GetComponent<TrapScript>().DisableTrap();
+                                Debug.Log("Disabled Trap");
+                                break;
+                            }
+                        }
+                    }
                 }
-                Debug.Log("Did not Hit");
-            }      
+            }   
+            interactTimeElapsed = 0;   
         }
     }
+
 }

@@ -7,20 +7,34 @@ public class GrandpaMovementScript : MonoBehaviour
 {
     public NavMeshAgent grandpa;
     public List<GameObject> targetDestinations;
-    public static int nextDestination = 0;
+    public static int destinationCheckpoint = 0;
+    public int nextDestination;
     public float waitDuration = 3f;
     public float timer = 0f;
     public bool alive = true;
     public CheckpointManagerScript checkpoint;
 
+    public Animator animator;
+
+    public GameObject deathScreen;
 
     void Start()
     {
+        nextDestination = destinationCheckpoint;
+        targetDestinations[nextDestination].GetComponent<MeshRenderer>().enabled = true;
         grandpa.SetDestination(targetDestinations[nextDestination].transform.position);
     }
 
     void Update()
     {
+        if(grandpa.velocity != Vector3.zero)
+                {
+                    animator.SetBool("Iswalking", true);
+                }
+                else if(grandpa.velocity == Vector3.zero)
+                {
+                    animator.SetBool("Iswalking", false);
+                }
         timer += Time.deltaTime;
         if(timer > waitDuration && alive)
         {
@@ -33,6 +47,8 @@ public class GrandpaMovementScript : MonoBehaviour
         }
     }
 
+
+
     void GoToNextDestination()
     {
         if (nextDestination == targetDestinations.Count - 1)
@@ -41,7 +57,9 @@ public class GrandpaMovementScript : MonoBehaviour
         }
         else
         {
+            targetDestinations[nextDestination].GetComponent<MeshRenderer>().enabled = false;
             nextDestination++;
+            targetDestinations[nextDestination].GetComponent<MeshRenderer>().enabled = true;
             grandpa.SetDestination(targetDestinations[nextDestination].transform.position);
         }
     }
@@ -56,18 +74,27 @@ public class GrandpaMovementScript : MonoBehaviour
         return;
     }
 
-    public void Dead()
+    public void Dead(int scenario)
     {
+        if (scenario == 3)
+        {
+            gameObject.SetActive(false);
+        }
+        if(scenario == 1 || scenario == 2)
+        {
+            gameObject.transform.localScale = new Vector3(1f, 0.01f, 1f);
+        }
+        deathScreen.GetComponent<DeathAnimationScript>().Dead(scenario);
         gameObject.GetComponent<NavMeshAgent>().isStopped = true;
         alive = false;
         Debug.Log("Died!");
-
-        checkpoint.Respawn();
     }
 
     public void Respawn()
     {
         alive = true;
+        gameObject.SetActive(true);
+        gameObject.transform.localScale = Vector3.one;
         gameObject.GetComponent<NavMeshAgent>().isStopped = false;
         Continue();
     }

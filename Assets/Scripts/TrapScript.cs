@@ -6,7 +6,7 @@ using UnityEngine.Playables;
 public class TrapScript : MonoBehaviour
 {
     public bool trapEnabled = true;
-
+    public GameObject lid;
 
     void OnTriggerEnter(Collider other)
     {
@@ -22,7 +22,7 @@ public class TrapScript : MonoBehaviour
                 var grandpaScript = other.gameObject.GetComponent<GrandpaMovementScript>();
                 if (grandpaScript != null)
                 {
-                    grandpaScript.Dead();
+                    grandpaScript.Dead(3);
                 }
                 else
                 {
@@ -55,5 +55,6 @@ public class TrapScript : MonoBehaviour
     public void DisableTrap()
     {
         trapEnabled = false;
+        lid.SetActive(true);
     }
 }

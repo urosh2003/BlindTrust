@@ -38,7 +38,7 @@ public class DropScript : MonoBehaviour
             var grandpaScript = other.gameObject.GetComponent<GrandpaMovementScript>();
             if (grandpaScript != null)
             {
-                grandpaScript.Dead();
+                grandpaScript.Dead(1);
             }
             else
             {

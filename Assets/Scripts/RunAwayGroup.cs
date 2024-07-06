@@ -5,6 +5,7 @@ using UnityEngine;
 public class RunAwayGroup : MonoBehaviour
 {
     public List<GameObject> runaways;
+    public int GroupSquirlBandit;
 
     public void BarkedAt()
     {
@@ -26,7 +27,18 @@ public class RunAwayGroup : MonoBehaviour
             var grandpaScript = other.gameObject.GetComponent<GrandpaMovementScript>();
             if (grandpaScript != null)
             {
-                grandpaScript.Dead();
+                if( GroupSquirlBandit == 1)
+                {
+                    grandpaScript.Dead(4);
+                }
+                if (GroupSquirlBandit == 2)
+                {
+                    grandpaScript.Dead(5);
+                }
+                if (GroupSquirlBandit == 3)
+                {
+                    grandpaScript.Dead(0);
+                }
             }
             else
             {

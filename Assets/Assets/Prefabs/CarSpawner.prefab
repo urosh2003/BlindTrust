@@ -45,6 +45,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   car: {fileID: 2599966137976220775, guid: 069f2402840c1db42ac953262e7ab140, type: 3}
-  spawnRate: 5
+  spawnRate: 2
   timeElapsed: 1
   targetRotation: {x: 0, y: 0, z: 1}
+  active: 0
+  finalCar: {fileID: 0}
+  faster: 2
+  carDestination: {fileID: 0}

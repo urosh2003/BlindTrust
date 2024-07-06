@@ -4,18 +4,18 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - Terrain
   - Grandpa
-  - Obstacle
-  - PickUp
   - Trap
-  - Car
-  - TrafficLight
   - RunAway
+  - PickUp
+  - TrafficLight
+  - Car
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Walkable
   - Water
   - UI
   - 

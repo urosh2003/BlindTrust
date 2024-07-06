@@ -8,6 +8,8 @@ public class carScript : MonoBehaviour
     public float carSpeed = 1;
     public Vector3 directionVector;
     public CarSpawnerScript spawner;
+    public float thresholdDistance = 10f;
+
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +23,10 @@ public class carScript : MonoBehaviour
         if (spawner.timeElapsed > 0)
         {
             car.position += directionVector * Time.deltaTime * carSpeed;
+            if(Vector3.Distance(car.transform.position, spawner.transform.position) > thresholdDistance)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 
@@ -35,7 +41,8 @@ public class carScript : MonoBehaviour
             var grandpaScript = other.gameObject.GetComponent<GrandpaMovementScript>();
             if (grandpaScript != null)
             {
-                grandpaScript.Dead();
+                grandpaScript.Dead(2);
+                spawner.GetComponent<CarSpawnerScript>().active = false;
             }
             else
             {

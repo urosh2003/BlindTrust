@@ -26,7 +26,7 @@ public class FinalCarScript : MonoBehaviour
             var grandpaScript = other.gameObject.GetComponent<GrandpaMovementScript>();
             if (grandpaScript != null)
             {
-                grandpaScript.Dead();
+                grandpaScript.Dead(2);
             }
             else
             {

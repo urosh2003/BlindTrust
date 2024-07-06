@@ -6,6 +6,7 @@ public class CheckpointScript : MonoBehaviour
 {
     public CheckpointManagerScript manager;
     public int checkpointNumber;
+    public int destinationNumber;
 
 
     void OnTriggerEnter(Collider other)
@@ -17,6 +18,10 @@ public class CheckpointScript : MonoBehaviour
             {
                 Debug.Log("CheckPoint!");
                 CheckpointManagerScript.currentCheckpoint += 1;
+                GrandpaMovementScript.destinationCheckpoint = destinationNumber;
+                //manager.Respawn();
+                //
+
             }
             
         }

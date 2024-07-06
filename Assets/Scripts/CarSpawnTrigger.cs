@@ -18,7 +18,10 @@ public class CarSpawnTrigger : MonoBehaviour
     }
     void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject.CompareTag("Grandpa"))
+        {
         Debug.Log("Car spawner activated");
         spawner.active = true;
+        }
     }
 }
