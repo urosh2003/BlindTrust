@@ -11,12 +11,12 @@ public class CheckpointManagerScript : MonoBehaviour
     public GameObject pointer;
     public GameObject player;
     public GameObject grandpa;
-   
+    public GameObject promptPanel;
 
     public void Respawn()
     {
         Time.timeScale = 1;
-
+        promptPanel.SetActive(false);
         Debug.Log("Respawned");
         SceneManager.LoadScene("SampleScene 2");
         Time.timeScale = 1;
@@ -26,6 +26,8 @@ public class CheckpointManagerScript : MonoBehaviour
 
     void Start()
     {
+        promptPanel.SetActive(false);
+
         player.transform.position = checkpoints[currentCheckpoint].transform.position;
         grandpa.transform.position = checkpoints[currentCheckpoint].transform.position + Vector3.forward;
         pointer.transform.position = checkpoints[currentCheckpoint].transform.position;
@@ -47,6 +49,8 @@ public class CheckpointManagerScript : MonoBehaviour
 
         player.GetComponent<PlayerMovementScript>().Respawn();
         grandpa.GetComponent<GrandpaMovementScript>().Respawn();
+        promptPanel.SetActive(false);
+
 
         Time.timeScale = 1;
     }

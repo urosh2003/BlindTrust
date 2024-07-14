@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3037909211724769381}
   - component: {fileID: 3037909211724769403}
   - component: {fileID: 1437222080983914433}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: PromptTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -65,6 +65,9 @@ MonoBehaviour:
   promptSprite: {fileID: 0}
   promptSound: {fileID: 0}
   audioSource: {fileID: 1437222080983914433}
+  displayForSeconds: 0
+  triggerOnGrandpa: 1
+  triggerOnPlayer: 1
 --- !u!82 &1437222080983914433
 AudioSource:
   m_ObjectHideFlags: 0

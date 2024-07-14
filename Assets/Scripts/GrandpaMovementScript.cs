@@ -21,7 +21,7 @@ public class GrandpaMovementScript : MonoBehaviour
     void Start()
     {
         nextDestination = destinationCheckpoint;
-        targetDestinations[nextDestination].GetComponent<MeshRenderer>().enabled = true;
+        targetDestinations[nextDestination].GetComponentInChildren<MeshRenderer>().enabled = true;
         grandpa.SetDestination(targetDestinations[nextDestination].transform.position);
     }
 
@@ -57,9 +57,9 @@ public class GrandpaMovementScript : MonoBehaviour
         }
         else
         {
-            targetDestinations[nextDestination].GetComponent<MeshRenderer>().enabled = false;
+            targetDestinations[nextDestination].GetComponentInChildren<MeshRenderer>().enabled = false;
             nextDestination++;
-            targetDestinations[nextDestination].GetComponent<MeshRenderer>().enabled = true;
+            targetDestinations[nextDestination].GetComponentInChildren<MeshRenderer>().enabled = true;
             grandpa.SetDestination(targetDestinations[nextDestination].transform.position);
         }
     }
