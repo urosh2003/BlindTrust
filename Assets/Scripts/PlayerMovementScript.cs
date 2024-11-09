@@ -55,7 +55,7 @@ public class PlayerMovementScript : MonoBehaviour
                         gameObject.transform.Find("Ker Animacija").gameObject.SetActive(true);
 
                         playerCaught = false;
-                        gameObject.GetComponent<NavMeshAgent>().isStopped = false;
+                        //gameObject.GetComponent<NavMeshAgent>().isStopped = false;
                         input.ActivateInput();
                         clicks = 0;
                         if (held)
@@ -76,7 +76,7 @@ public class PlayerMovementScript : MonoBehaviour
         clickPanel.GetComponent<ButtonMashAnimationScript>().Func_StopUIAnim();
         clickPanel.SetActive(false);
 
-        gameObject.GetComponent<NavMeshAgent>().isStopped = true;
+        //gameObject.GetComponent<NavMeshAgent>().isStopped = true;
 
         Debug.Log("Player died");
 
@@ -90,7 +90,7 @@ public class PlayerMovementScript : MonoBehaviour
         clickPanel.SetActive(false);
         playerCaught = false;
         alive = true;
-        gameObject.GetComponent<NavMeshAgent>().isStopped = false;
+        //gameObject.GetComponent<NavMeshAgent>().isStopped = false;
     }
 
     public void CaughtInATrap()
@@ -98,7 +98,7 @@ public class PlayerMovementScript : MonoBehaviour
         moving = false;
         animator.SetBool("Iswalking", false);
 
-        gameObject.GetComponent<NavMeshAgent>().isStopped = true;
+        //gameObject.GetComponent<NavMeshAgent>().isStopped = true;
         gameObject.transform.Find("Ker Animacija").gameObject.SetActive(false);
         if(gameObject.GetComponent<PlayerRaycastScript>().holding)
         {

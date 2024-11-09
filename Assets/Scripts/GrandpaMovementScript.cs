@@ -76,6 +76,7 @@ public class GrandpaMovementScript : MonoBehaviour
 
     public void Dead(int scenario)
     {
+        Stop();
         if (scenario == 3)
         {
             gameObject.SetActive(false);

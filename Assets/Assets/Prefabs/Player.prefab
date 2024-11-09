@@ -10,15 +10,15 @@ GameObject:
   m_Component:
   - component: {fileID: 624622685089737347}
   - component: {fileID: 624622685089737358}
-  - component: {fileID: 624622685089737345}
   - component: {fileID: 624622685089737346}
-  - component: {fileID: 1967029111435356688}
   - component: {fileID: 4851282326401207819}
   - component: {fileID: 6179138427450599135}
   - component: {fileID: 4254098070380522663}
+  - component: {fileID: 4511879423063857090}
+  - component: {fileID: 4130654360101976548}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50,32 +50,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!195 &624622685089737345
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 624622685089737359}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 1
-  m_Speed: 1.75
-  m_Acceleration: 60
-  avoidancePriority: 50
-  m_AngularSpeed: 600
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 2
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  m_Radius: 0.6
+  m_Height: 3
+  m_Direction: 2
+  m_Center: {x: -0.042368297, y: 1.8, z: 0.6404249}
 --- !u!114 &624622685089737346
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -89,7 +67,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   camera: {fileID: 0}
-  player: {fileID: 624622685089737345}
+  player: {fileID: 0}
   targetDest: {fileID: 0}
   playerCaught: 0
   clicksRequired: 5
@@ -105,27 +83,6 @@ MonoBehaviour:
   mesh: {fileID: 3519186770989584044}
   moveSpeed: 7
   moving: 0
---- !u!95 &1967029111435356688
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 624622685089737359}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 56925419a9a498145ba051fe849bccce, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &4851282326401207819
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -152,25 +109,85 @@ MonoBehaviour:
       m_Calls: []
   m_ActionEvents:
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4254098070380522663}
+        m_TargetAssemblyTypeName: PlayerRaycastScript, Assembly-CSharp
+        m_MethodName: Bark
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 74de78bb-5c3e-4726-b8e1-a9320917c19a
     m_ActionName: Keyboard/Bark[/Keyboard/w]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4254098070380522663}
+        m_TargetAssemblyTypeName: PlayerRaycastScript, Assembly-CSharp
+        m_MethodName: Interact
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: f389fdb6-6e4c-4ce5-a305-7853ca6ddb35
     m_ActionName: Keyboard/Interact[/Keyboard/e]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 624622685089737346}
+        m_TargetAssemblyTypeName: PlayerMovementScript, Assembly-CSharp
+        m_MethodName: Move
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 0b7aa5e5-5f14-414c-a026-58a7cf186e84
     m_ActionName: Phone/Movement
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4254098070380522663}
+        m_TargetAssemblyTypeName: PlayerRaycastScript, Assembly-CSharp
+        m_MethodName: Bark
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 0a24fc57-1fdc-4333-9e44-960808588953
-    m_ActionName: Phone/Bark[/Gamepad/buttonWest]
+    m_ActionName: Phone/Bark
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4254098070380522663}
+        m_TargetAssemblyTypeName: PlayerRaycastScript, Assembly-CSharp
+        m_MethodName: Interact
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 83c209d8-e863-413f-bc3d-1b8e4f8ec135
-    m_ActionName: Phone/Interact[/Gamepad/buttonSouth]
+    m_ActionName: Phone/Interact
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Phone
@@ -292,13 +309,45 @@ MonoBehaviour:
   hitRange: 7
   barkCooldown: 4
   timeElapsed: -1
-  areaAroundPlayerRadius: 5
+  areaAroundPlayerRadius: 4
   interactCooldown: 0
   interactTimeElapsed: -1
   barks:
   - {fileID: 8300000, guid: 202661e4c26cd2c43aa9fa9f356e2788, type: 3}
   CooldownIcon: {fileID: 0}
   barkEffect: {fileID: 6969810110602969605}
+--- !u!54 &4511879423063857090
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 624622685089737359}
+  serializedVersion: 2
+  m_Mass: 1000000
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
+--- !u!208 &4130654360101976548
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 624622685089737359}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 0
+  m_Extents: {x: 1.5, y: 0.5, z: 1.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 1.8, z: 0.65}
+  m_TimeToStationary: 0.5
 --- !u!1 &7725265532170162798
 GameObject:
   m_ObjectHideFlags: 0
@@ -325,13 +374,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7725265532170162798}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 2, z: 1.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 624622685089737347}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!198 &6969810110602969605
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -5248,6 +5297,27 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d11c31ff70d63204086031f913e6da1d, type: 3}
   m_PrefabInstance: {fileID: 4330141123459396605}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &1417025935382888448
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3519186770989584044}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 56925419a9a498145ba051fe849bccce, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &4295722753327551510 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d11c31ff70d63204086031f913e6da1d, type: 3}

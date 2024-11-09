@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8564467583491706118}
   - component: {fileID: 8564467583491706117}
   - component: {fileID: 3544552940350129473}
+  - component: {fileID: 4288230840106902560}
   m_Layer: 5
   m_Name: DeathPanel
   m_TagString: Untagged
@@ -77,10 +78,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -117,7 +118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88160641a8bb8624480465fcd1fcef4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waitDuration: 3
+  waitDuration: 1.5
   deathAssaultSprites:
   - {fileID: 21300000, guid: 62137b16faffc68489d643ae29633628, type: 3}
   - {fileID: 21300000, guid: d4217482bcd56cb489cd4a35a8218469, type: 3}
@@ -181,11 +182,114 @@ MonoBehaviour:
   m_Image: {fileID: 8564467584037477369}
   gameOverScreen: {fileID: 8564467583491706116}
   m_SpriteArray: []
-  m_Speed: 0.02
+  m_Speed: 0.03
   deathScreenGrandpa: {fileID: 21300000, guid: d216115b3f1aa0a47a85435c07c64d87, type: 3}
   deathScreenPlayer: {fileID: 21300000, guid: ae37d1434c12442488fcc528de11dc64, type: 3}
   playAgainButton: {fileID: 8564467585483928798}
   gameOverText: {fileID: 8564467584916899777}
+  audio: {fileID: 4288230840106902560}
+  splashSound: {fileID: 8300000, guid: 9c19d1ae1c1dea94c8ad1235107d2713, type: 3}
+  holeSound: {fileID: 8300000, guid: f334f94295882f34bb0ee26ce4f0c847, type: 3}
+  squirelSound: {fileID: 8300000, guid: 010b73af775f32d409139b368de2f891, type: 3}
+  carSound: {fileID: 8300000, guid: 2c240afd7a7c0f64b94e24ec3b60dd97, type: 3}
+  banditSound: {fileID: 0}
+  groupSound: {fileID: 0}
+--- !u!82 &4288230840106902560
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8564467583491706116}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &8564467584037477375
 GameObject:
   m_ObjectHideFlags: 0
