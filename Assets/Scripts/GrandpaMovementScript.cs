@@ -13,10 +13,12 @@ public class GrandpaMovementScript : MonoBehaviour
     public float timer = 0f;
     public bool alive = true;
     public CheckpointManagerScript checkpoint;
+    public GameObject winScreen;
 
     public Animator animator;
 
     public GameObject deathScreen;
+    public GameObject controls;
 
     void Start()
     {
@@ -71,6 +73,8 @@ public class GrandpaMovementScript : MonoBehaviour
 
     void End()
     {
+        winScreen.SetActive(true);
+        controls.SetActive(false);
         return;
     }
 
