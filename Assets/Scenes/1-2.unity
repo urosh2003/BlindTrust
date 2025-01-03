@@ -1339,6 +1339,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3613322178227175506, guid: 57cc6ee021f47a64e847da85674e1331, type: 3}
+      propertyPath: menuSceneName
+      value: LevelsMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 3613322178227175506, guid: 57cc6ee021f47a64e847da85674e1331, type: 3}
+      propertyPath: nextSceneName
+      value: LevelsMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 3613322178227175506, guid: 57cc6ee021f47a64e847da85674e1331, type: 3}
+      propertyPath: thisSceneName
+      value: 1-2
+      objectReference: {fileID: 0}
     - target: {fileID: 4249978294261244888, guid: 57cc6ee021f47a64e847da85674e1331, type: 3}
       propertyPath: m_Name
       value: WinScreen

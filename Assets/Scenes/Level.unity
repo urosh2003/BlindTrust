@@ -31619,7 +31619,6 @@ MonoBehaviour:
   - {fileID: 395283731}
   - {fileID: 39536313}
   - {fileID: 1588559175}
-  pointer: {fileID: 1012842770}
   player: {fileID: 1982106307}
   grandpa: {fileID: 99947919}
 --- !u!4 &558503276
@@ -102207,6 +102206,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1639092012}
   m_Mesh: {fileID: 1890910595786045333, guid: dff9b188ee9a1924d93db19e68c9a335, type: 3}
+--- !u!1 &1639336008 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1257837393140293417, guid: 05538f40e3b89934196009e6b013f2de, type: 3}
+  m_PrefabInstance: {fileID: 6981425701624829454}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1641978500
 GameObject:
   m_ObjectHideFlags: 0
@@ -126376,22 +126380,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!54 &1982106326
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1982106307}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 1
 --- !u!1 &1982554552
 GameObject:
   m_ObjectHideFlags: 0
@@ -137546,6 +137534,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1635538474}
     - target: {fileID: 624622685089737346, guid: 026e54083d522af4c88b30f84fbbb9d6, type: 3}
+      propertyPath: controls
+      value: 
+      objectReference: {fileID: 1639336008}
+    - target: {fileID: 624622685089737346, guid: 026e54083d522af4c88b30f84fbbb9d6, type: 3}
       propertyPath: checkpoint
       value: 
       objectReference: {fileID: 558503275}
@@ -137583,7 +137575,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 624622685089737347, guid: 026e54083d522af4c88b30f84fbbb9d6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 280.98
+      value: 279.59
       objectReference: {fileID: 0}
     - target: {fileID: 624622685089737347, guid: 026e54083d522af4c88b30f84fbbb9d6, type: 3}
       propertyPath: m_LocalPosition.y
@@ -137591,7 +137583,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 624622685089737347, guid: 026e54083d522af4c88b30f84fbbb9d6, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 94.33
+      value: 113.89
       objectReference: {fileID: 0}
     - target: {fileID: 624622685089737347, guid: 026e54083d522af4c88b30f84fbbb9d6, type: 3}
       propertyPath: m_LocalRotation.w

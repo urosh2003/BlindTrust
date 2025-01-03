@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class GrandpaMovementScript : MonoBehaviour
 {
@@ -73,6 +75,23 @@ public class GrandpaMovementScript : MonoBehaviour
 
     void End()
     {
+        string[] level = SceneManager.GetActiveScene().name.Split('-');
+        int beatWorld = int.Parse(level[0]);
+        int beatLevel = int.Parse(level[1]);
+
+        int maxWorld = PlayerPrefs.GetInt("world");
+        int maxLevel = PlayerPrefs.GetInt("level");
+
+        if(maxWorld <= beatWorld)
+        {
+            PlayerPrefs.SetInt("world", int.Parse(level[0]));
+            if(maxLevel < beatLevel)
+            {
+                PlayerPrefs.SetInt("level", int.Parse(level[1]));
+
+            }
+        }
+
         winScreen.SetActive(true);
         controls.SetActive(false);
         return;
