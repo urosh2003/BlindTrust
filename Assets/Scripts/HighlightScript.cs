@@ -1,4 +1,5 @@
 using cakeslice;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,6 +30,7 @@ public class HighlightScript : MonoBehaviour
         {
             if (Vector3.Distance(this.transform.position, player.transform.position) < distance)
             {
+                Debug.Log("abc");
                 if (!gameObject.CompareTag("Trap") || (player.GetComponent<PlayerRaycastScript>().holding && gameObject.CompareTag("Trap")))
                 {
                     outline.color = 1;
@@ -67,13 +69,19 @@ public class HighlightScript : MonoBehaviour
         outline.eraseRenderer = true;
         if (buttonClose == true)
         {
-            interactButton.SetActive(false);
-            buttonClose = false;
+            StartCoroutine(WaitForFeedback());
         }
     }
     public void Enable()
     {
         outline.eraseRenderer = false;
         disabled = false;
+    }
+
+    IEnumerator WaitForFeedback()
+    {
+        yield return new WaitForSeconds(0.2f);
+        interactButton.SetActive(false);
+        buttonClose = false;
     }
 }

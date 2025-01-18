@@ -59,9 +59,9 @@ public class PlayerRaycastScript : MonoBehaviour
         }
     }
 
-    public void Bark(InputAction.CallbackContext context)
+    public void Bark()
     {
-        if (context.performed && timeElapsed < 0f)
+        if (timeElapsed < 0f)
         {
             CooldownIcon.GetComponent<SpellCooldown>().UseSpell();
             Debug.Log("Woof");
@@ -97,9 +97,9 @@ public class PlayerRaycastScript : MonoBehaviour
         }
     }
 
-    public void Interact(InputAction.CallbackContext context)
+    public void Interact()
     {
-        if (context.performed && interactTimeElapsed < 0)
+        if (interactTimeElapsed < 0)
         {
             Debug.Log("Interact");
 

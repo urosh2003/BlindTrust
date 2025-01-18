@@ -130,7 +130,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   outline: {fileID: 2175797198994895957}
   player: {fileID: 0}
-  distance: 2
+  interactButton: {fileID: 0}
+  buttonClose: 0
+  disabled: 0
+  distance: 4
 --- !u!1 &6927410918179447772
 GameObject:
   m_ObjectHideFlags: 0
