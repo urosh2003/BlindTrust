@@ -1,24 +1,51 @@
 using cakeslice;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using UnityEditor.SearchService;
 using UnityEngine;
 
 public class HighlightScript : MonoBehaviour
 {
     public Outline outline;
     public GameObject player;
+    public GameObject interactButton;
+    public bool buttonClose = false;
+    public bool disabled=false;
+
     public float distance = 2f;
     // Start is called before the first frame update
 
+    private void Start()
+    {
+        interactButton = Resources.FindObjectsOfTypeAll<GameObject>()
+        .FirstOrDefault(obj => obj.name == "InteractButton");
+        interactButton.SetActive(false);
+    }
+
     private void Update()
     {
-        if (Vector3.Distance(this.transform.position, player.transform.position) < distance)
+        if (!disabled)
         {
-            if (!gameObject.CompareTag("Trap") || (player.GetComponent<PlayerRaycastScript>().holding && gameObject.CompareTag("Trap")))
-                outline.color = 1;
+            if (Vector3.Distance(this.transform.position, player.transform.position) < distance)
+            {
+                if (!gameObject.CompareTag("Trap") || (player.GetComponent<PlayerRaycastScript>().holding && gameObject.CompareTag("Trap")))
+                {
+                    outline.color = 1;
+                    interactButton.SetActive(true);
+                    buttonClose = true;
+                }
+            }
+            else
+            {
+                if (buttonClose == true)
+                {
+                    interactButton.SetActive(false);
+                    buttonClose = false;
+                }
+                outline.color = 0;
+            }
         }
-        else
-            outline.color = 0;
     }
     void OnTriggerEnter(Collider other)
     {
@@ -36,10 +63,17 @@ public class HighlightScript : MonoBehaviour
     }
     public void Disable()
     {
+        disabled = true;
         outline.eraseRenderer = true;
+        if (buttonClose == true)
+        {
+            interactButton.SetActive(false);
+            buttonClose = false;
+        }
     }
     public void Enable()
     {
         outline.eraseRenderer = false;
+        disabled = false;
     }
 }

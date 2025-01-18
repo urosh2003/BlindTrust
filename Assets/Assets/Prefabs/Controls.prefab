@@ -330,7 +330,7 @@ GameObject:
   - component: {fileID: 1257837393592800127}
   - component: {fileID: 6981425700760618597}
   m_Layer: 5
-  m_Name: Icon
+  m_Name: BarkButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -355,8 +355,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -395, y: 265}
-  m_SizeDelta: {x: 300, y: 300}
+  m_AnchoredPosition: {x: -382.90656, y: 252.5}
+  m_SizeDelta: {x: 270, y: 270}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1257837393592800126
 CanvasRenderer:
@@ -437,7 +437,7 @@ GameObject:
   - component: {fileID: 6981425701246006109}
   - component: {fileID: 6981425701246006108}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Stick
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -549,7 +549,7 @@ GameObject:
   - component: {fileID: 6981425701294530942}
   - component: {fileID: 6981425701294530913}
   m_Layer: 5
-  m_Name: Image (2)
+  m_Name: InteractButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -572,8 +572,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -236, y: 499}
-  m_SizeDelta: {x: 234.4305, y: 229.1585}
+  m_AnchoredPosition: {x: -232.54468, y: 519.5}
+  m_SizeDelta: {x: 270, y: 270}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6981425701294530943
 CanvasRenderer:
@@ -603,7 +603,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: e46c6039872488b4da6f92befe048b55, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

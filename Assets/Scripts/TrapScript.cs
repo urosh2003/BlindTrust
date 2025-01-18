@@ -56,6 +56,7 @@ public class TrapScript : MonoBehaviour
     public void DisableTrap()
     {
         trapEnabled = false;
+        gameObject.GetComponent<HighlightScript>().Disable();
         lid.SetActive(true);
         outline.eraseRenderer = true;
     }
