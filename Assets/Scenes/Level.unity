@@ -28300,18 +28300,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7651194977662760584, guid: d5f97043e351fdf40be7aaff7835465f, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7651194977662760584, guid: d5f97043e351fdf40be7aaff7835465f, type: 3}
-      propertyPath: m_Extents.x
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7651194977662760584, guid: d5f97043e351fdf40be7aaff7835465f, type: 3}
-      propertyPath: m_Extents.z
-      value: 0.1
-      objectReference: {fileID: 0}
     - target: {fileID: 7651194977662760585, guid: d5f97043e351fdf40be7aaff7835465f, type: 3}
       propertyPath: spawner
       value: 
@@ -91234,25 +91222,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1460820802}
   m_Mesh: {fileID: 2212009239438826721, guid: cc532438fba2f514ba72cc6e994e0dda, type: 3}
---- !u!1 &1461609044 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7651194977662760586, guid: d5f97043e351fdf40be7aaff7835465f, type: 3}
-  m_PrefabInstance: {fileID: 508785292}
-  m_PrefabAsset: {fileID: 0}
---- !u!136 &1461609051
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1461609044}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 0.3
-  m_Height: 9.997557
-  m_Direction: 1
-  m_Center: {x: 0.20017155, y: 4.4987803, z: 0.008123019}
 --- !u!1 &1463299490
 GameObject:
   m_ObjectHideFlags: 0
