@@ -82,7 +82,7 @@ public class GrandpaMovementScript : MonoBehaviour
         int maxWorld = PlayerPrefs.GetInt("world");
         int maxLevel = PlayerPrefs.GetInt("level");
 
-        if(maxWorld <= beatWorld)
+        if(beatLevel == 1)
         {
             PlayerPrefs.SetInt("world", int.Parse(level[0]));
             if(maxLevel < beatLevel)
@@ -116,6 +116,7 @@ public class GrandpaMovementScript : MonoBehaviour
 
     public void Respawn()
     {
+        transform.position = CheckpointManagerScript.instance.checkpoints[CheckpointManagerScript.currentCheckpoint].transform.position + Vector3.forward;
         alive = true;
         gameObject.SetActive(true);
         gameObject.transform.localScale = Vector3.one;

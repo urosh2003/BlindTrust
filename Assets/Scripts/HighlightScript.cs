@@ -18,7 +18,7 @@ public class HighlightScript : MonoBehaviour
     {
         interactButton = Resources.FindObjectsOfTypeAll<GameObject>()
         .FirstOrDefault(obj => obj.name == "InteractButton");
-        interactButton.SetActive(false);
+        //interactButton.SetActive(false);
     }
 
     private void Update()
@@ -31,7 +31,7 @@ public class HighlightScript : MonoBehaviour
                 if (!gameObject.CompareTag("Trap") || (player.GetComponent<PlayerRaycastScript>().holding && gameObject.CompareTag("Trap")))
                 {
                     outline.color = 1;
-                    interactButton.SetActive(true);
+                    //interactButton.SetActive(true);
                     buttonClose = true;
                 }
             }
@@ -39,7 +39,7 @@ public class HighlightScript : MonoBehaviour
             {
                 if (buttonClose == true)
                 {
-                    interactButton.SetActive(false);
+                    //interactButton.SetActive(false);
                     buttonClose = false;
                 }
                 outline.color = 0;
@@ -78,7 +78,7 @@ public class HighlightScript : MonoBehaviour
     IEnumerator WaitForFeedback()
     {
         yield return new WaitForSeconds(0.2f);
-        interactButton.SetActive(false);
+        //interactButton.SetActive(false);
         buttonClose = false;
     }
 }

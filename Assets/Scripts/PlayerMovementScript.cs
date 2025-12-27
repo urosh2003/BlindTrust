@@ -31,6 +31,7 @@ public class PlayerMovementScript : MonoBehaviour
         camera.orthographicSize /= camera.aspect;
         QualitySettings.vSyncCount = 1;
         Application.targetFrameRate = 60;
+        
     }
 
     void Update()
@@ -91,7 +92,7 @@ public class PlayerMovementScript : MonoBehaviour
 
     public void Respawn()
     {
-
+        transform.position = CheckpointManagerScript.instance.checkpoints[CheckpointManagerScript.currentCheckpoint].transform.position;
         clickPanel.SetActive(false);
         playerCaught = false;
         alive = true;

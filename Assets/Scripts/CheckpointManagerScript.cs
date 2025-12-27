@@ -7,17 +7,22 @@ using UnityEngine.SceneManagement;
 public class CheckpointManagerScript : MonoBehaviour
 {
     public List<GameObject> checkpoints;
+    public static CheckpointManagerScript instance;
     public static int currentCheckpoint = 0;
     public GameObject player;
     public GameObject grandpa;
-   
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     public void Respawn()
     {
         Time.timeScale = 1;
 
         Debug.Log("Respawned");
-        SceneManager.LoadScene("Level");
+        SceneManager.LoadScene("1-2");
         Time.timeScale = 1;
         StartCoroutine(InitializeAfterSceneLoad());
 
@@ -39,10 +44,7 @@ public class CheckpointManagerScript : MonoBehaviour
     {
         // Wait for the end of frame to ensure the scene is fully loaded
         yield return new WaitForEndOfFrame();
-        /*
-        player.transform.position = checkpoints[currentCheckpoint].transform.position;
-        grandpa.transform.position = checkpoints[currentCheckpoint].transform.position + Vector3.forward;
-        */
+        
         player.GetComponent<PlayerMovementScript>().Respawn();
         grandpa.GetComponent<GrandpaMovementScript>().Respawn();
 
